@@ -1,0 +1,12 @@
+[
+  {
+    "id": "1",
+    "question": "What is AWS OpenSearch?",
+    "answer": "It is a managed search and analytics engine."
+  },
+  {
+    "id": "2",
+    "question": "What is semantic search?",
+    "answer": "Semantic search understands the meaning behind your query."
+  }
+]
