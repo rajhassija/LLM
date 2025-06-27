@@ -1,0 +1,123 @@
+{
+  "rules": [
+    {
+      "rule_id": "1",
+      "description": "",
+      "changeable": false,
+      "guidance": "Check product ID.",
+      "conditions": [
+        {
+          "type": "AND",
+          "class": "Product",
+          "attribute": "id",  
+          "operator": "equals",
+          "rule_compare": "simple",
+          "value": "P123"
+        }
+      ],
+      "actions": [
+        {
+          "type": "return",
+          "value": true
+        }
+      ]
+    },
+    {
+      "rule_id": "2",
+      "description": "test",
+      "changeable": false,
+      "guidance": "Check product ID.",
+      "conditions": [
+        {
+          "type": "AND",
+          "class": "Product",
+          "attribute": "id",
+          "operator": "equals",
+          "rule_compare": "complex",
+          "compare_class": "Customer",
+          "compare_attribute": "id"
+        }
+      ],
+      "actions": [
+        {
+          "type": "return",
+          "value": false
+        }
+      ]
+    },
+    {
+      "rule_id": "3",
+      "description": "combined",
+      "changeable": false,
+      "guidance": "Check product ID.",
+      "conditions": [
+        {
+          "type": "AND",
+          "class": "Order",
+          "attribute": "total_price",
+          "operator": "greater_than",
+          "rule_compare": "simple",
+          "value": 1000
+        },
+        {
+          "type": "AND",
+          "class": "Product",
+          "attribute": "id",
+          "operator": "equals",
+          "rule_compare": "simple",
+          "value": "123"
+        }
+      ],
+      "actions": [
+        {
+          "type": "operation",
+          "attribute": "Order.total_price",
+          "operation": "add",
+          "value": 100
+        }
+      ]
+    },
+    {
+      "rule_id": "4",
+      "description": "constant",
+      "changeable": false,
+      "guidance": "Check product ID.",
+      "conditions": [
+        {
+          "type": "AND",
+          "class": "Product",
+          "attribute": "category",
+          "operator": "equals",
+          "rule_compare": "simple",
+          "value": "Electronics"
+        }
+      ],
+      "actions": [
+        {
+          "type": "return",
+          "value": "This is awesome"
+        }
+      ]
+    }
+  ],
+  "data": {
+    "Product": {
+      "id": "P123",
+      "name": "Smartphone",
+      "price": 1200,
+      "category": "Electronics"
+    },
+    "Order": {
+      "id": "0456",
+      "product_id": "P123",
+      "quantity": 1,
+      "total_price": 1300
+    },
+    "Customer": {
+      "id": "P123",
+      "name": "John Doe",
+      "email": "john.doe@example.com",
+      "loyalty_points": 50
+    }
+  }
+}

@@ -1,0 +1,27 @@
+[
+    {
+        "rule_set_id": "1",
+        "rule_set_name": "test",
+        "rules": [
+            "2",
+            "3",
+            "4"
+        ]
+    },
+    {
+        "rule_set_id": "2",
+        "rule_set_name": "test 2",
+        "rules": [
+            "2",
+            "4"
+        ]
+    },
+    {
+        "rule_set_id": "3 ",
+        "rule_set_name": "test3",
+        "rules": [
+            "3",
+            "4"
+        ]
+    }
+]

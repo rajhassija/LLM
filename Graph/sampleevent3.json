@@ -1,0 +1,135 @@
+{
+  "rules": [
+    {
+      "rule_id": "1",
+      "description": "Check if order total is above 500",
+      "conditions": [
+        {
+          "type": "AND",
+          "class": "Order",
+          "attribute": "total_price",
+          "operator": "greater_than",
+          "rule_compare": "simple",
+          "value": 500
+        }
+      ],
+      "actions": [
+        {
+          "type": "operation",
+          "class": "Order",
+          "attribute": "discount",
+          "operation": "constant",
+          "value": 50
+        }
+      ],
+      "changeable": false,
+      "guidance": "Orders above $500 automatically receive a discount."
+    },
+    {
+      "rule_id": "2",
+      "description": "Apply VIP discount if customer is VIP",
+      "conditions": [
+        {
+          "type": "AND",
+          "class": "Customer",
+          "attribute": "is_vip",
+          "operator": "equals",
+          "rule_compare": "simple",
+          "value": true
+        }
+      ],
+      "actions": [
+        {
+          "type": "operation",
+          "class": "Order",
+          "attribute": "discount",
+          "operation": "add",
+          "value": 20
+        }
+      ],
+      "changeable": false,
+      "guidance": "Customers with VIP status receive an extra discount."
+    },
+    {
+      "rule_id": "3",
+      "description": "Check if discount is greater than 50 after applying all rules",
+      "conditions": [
+        {
+          "type": "AND",
+          "class": "Order",
+          "attribute": "discount",
+          "operator": "greater_than",
+          "rule_compare": "simple",
+          "value": 50
+        }
+      ],
+      "actions": [
+        {
+          "type": "return",
+          "value": "High discount applied"
+        }
+      ],
+      "changeable": true,
+      "guidance": "Orders with discounts above $50 get a special discount label."
+    },
+    {
+      "rule_id": "4",
+      "description": "Check if the product category is 'Electronics' and apply extra tax",
+      "conditions": [
+        {
+          "type": "AND",
+          "class": "Product",
+          "attribute": "category",
+          "operator": "equals",
+          "rule_compare": "simple",
+          "value": "Electronics"
+        }
+      ],
+      "actions": [
+        {
+          "type": "operation",
+          "class": "Order",
+          "attribute": "total_price",
+          "operation": "multiply",
+          "value": 1.08
+        }
+      ],
+      "changeable": false,
+      "guidance": "Electronics have an 8% extra tax."
+    },
+    {
+      "rule_id": "5",
+      "description": "Provide free shipping if order total is above 600 after all discounts",
+      "conditions": [
+        {
+          "type": "AND",
+          "class": "Order",
+          "attribute": "total_price",
+          "operator": "greater_than",
+          "rule_compare": "simple",
+          "value": 600
+        }
+      ],
+      "actions": [
+        {
+          "type": "return",
+          "value": "Free Shipping Applied"
+        }
+      ],
+      "changeable": true,
+      "guidance": "Orders above $600 qualify for free shipping."
+    }
+  ],
+  "data": {
+    "Order": {
+      "total_price": 550,
+      "discount": 0
+    },
+    "Customer": {
+      "is_vip": false
+    },
+    "Product": {
+      "category": "Electronics"
+    }
+  }
+}

@@ -1,0 +1,124 @@
+{
+    "rules": [
+        {
+            "rule_id": "rule_001",
+            "description": "Set discount if price > 50",
+            "conditions": [
+                {
+                    "type": "AND",
+                    "class": "Product",
+                    "attribute": "has_price",
+                    "operator": "greater_than",
+                    "value": 50
+                }
+            ],
+            "actions": [
+                {
+                    "type": "operation",
+                    "class": "Product",
+                    "attribute": "has_discount",
+                    "operation": "constant",
+                    "value": 10
+                }
+            ]
+        },
+        {
+            "rule_id": "rule_002",
+            "description": "Apply more discount if has_discount = 10",
+            "conditions": [
+                {
+                    "type": "AND",
+                    "class": "Product",
+                    "attribute": "has_discount",
+                    "operator": "equals",
+                    "value": 10
+                }
+            ],
+            "actions": [
+                {
+                    "type": "operation",
+                    "class": "Product",
+                    "attribute": "has_price",
+                    "operation": "multiply",
+                    "value": 0.9
+                }
+            ]
+        },
+        {
+            "rule_id": "rule_003",
+            "description": "Apply additional discount if customer is VIP",
+            "conditions": [
+                {
+                    "type": "AND",
+                    "class": "Customer",
+                    "attribute": "is_vip",
+                    "operator": "equals",
+                    "value": true
+                }
+            ],
+            "actions": [
+                {
+                    "type": "operation",
+                    "class": "Product",
+                    "attribute": "has_price",
+                    "operation": "multiply",
+                    "value": 0.8
+                }
+            ]
+        },
+        {
+            "rule_id": "rule_004",
+            "description": "Check if product category is Electronics and apply tax",
+            "conditions": [
+                {
+                    "type": "AND",
+                    "class": "Product",
+                    "attribute": "category",
+                    "operator": "equals",
+                    "value": "Electronics"
+                }
+            ],
+            "actions": [
+                {
+                    "type": "operation",
+                    "class": "Product",
+                    "attribute": "has_price",
+                    "operation": "multiply",
+                    "value": 1.15
+                }
+            ]
+        },
+        {
+            "rule_id": "rule_005",
+            "description": "Provide free shipping if total price > 100",
+            "conditions": [
+                {
+                    "type": "AND",
+                    "class": "Order",
+                    "attribute": "total_price",
+                    "operator": "greater_than",
+                    "value": 100
+                }
+            ],
+            "actions": [
+                {
+                    "type": "return",
+                    "value": "Free Shipping"
+                }
+            ]
+        }
+    ],
+    "data": {
+        "Product": {
+            "has_price": 75,
+            "has_discount": 0,
+            "category": "Electronics"
+        },
+        "Customer": {
+            "is_vip": true
+        },
+        "Order": {
+            "total_price": 110
+        }
+    }
+}

@@ -1,0 +1,282 @@
+[
+    {
+        "rule_id": "",
+        "description": "",
+        "conditions": [
+            {
+                "type": "AND",
+                "class": "Product",
+                "attribute": "id",
+                "operator": "equals",
+                "rule_compare": "simple",
+                "value": "123"
+            }
+        ],
+        "actions": [
+            {
+                "type": "return",
+                "value": true
+            }
+        ]
+    },
+    {
+        "rule_id": "2",
+        "description": "test",
+        "conditions": [
+            {
+                "type": "AND",
+                "class": "Product",
+                "attribute": "id",
+                "operator": "equals",
+                "rule_compare": "complex",
+                "compare_class": "Customer",
+                "compare_attribute": "id"
+            }
+        ],
+        "actions": [
+            {
+                "type": "return",
+                "value": false
+            }
+        ]
+    },
+    {
+        "rule_id": "3",
+        "description": "combined",
+        "conditions": [
+            {
+                "type": "AND",
+                "class": "Order",
+                "attribute": "total_price",
+                "operator": "greater_than",
+                "rule_compare": "simple",
+                "value": "1000"
+            },
+            {
+                "type": "AND",
+                "class": "Product",
+                "attribute": "id",
+                "operator": "equals",
+                "rule_compare": "simple",
+                "value": "123"
+            }
+        ],
+        "actions": [
+            {
+                "type": "operation",
+                "attribute": "Order.total_price",
+                "operation": "add",
+                "value": 100.0
+            }
+        ]
+    },
+    {
+        "rule_id": "4",
+        "description": "constant",
+        "conditions": [
+            {
+                "type": "AND",
+                "class": "Product",
+                "attribute": "category",
+                "operator": "equals",
+                "rule_compare": "simple",
+                "value": "Electronics"
+            }
+        ],
+        "actions": [
+            {
+                "type": "return",
+                "value": "This is awesome"
+            }
+        ]
+    },
+    {
+        "rule_id": "",
+        "description": "",
+        "conditions": [
+            {
+                "type": "AND",
+                "class": "Product",
+                "attribute": "has_name",
+                "operator": "equals",
+                "rule_compare": "simple",
+                "value": "dgsg"
+            }
+        ],
+        "actions": [
+            {
+                "type": "operation",
+                "attribute": "requestoutcome.has_addresschangedaysoutcome",
+                "operation": "constant",
+                "value": "zvzf"
+            }
+        ]
+    },
+    {
+        "rule_id": "dvasasaf",
+        "description": "asfasf",
+        "conditions": [
+            {
+                "type": "AND",
+                "class": "Product",
+                "attribute": "has_name",
+                "operator": "equals",
+                "rule_compare": "simple",
+                "value": "dgsg"
+            }
+        ],
+        "actions": [
+            {
+                "type": "operation",
+                "attribute": "requestoutcome.has_addresschangedaysoutcome",
+                "operation": "constant",
+                "value": "zvzfdsafas"
+            }
+        ]
+    },
+    {
+        "rule_id": "fsf235235",
+        "description": "safa",
+        "conditions": [
+            {
+                "type": "AND",
+                "class": "Customer",
+                "attribute": "has_addresschangedbyemployer",
+                "operator": "equals",
+                "rule_compare": "simple",
+                "value": "Y"
+            }
+        ],
+        "actions": [
+            {
+                "type": "operation",
+                "attribute": "requestoutcome.has_addresschangedaysoutcome",
+                "operation": "constant",
+                "value": "Yes"
+            }
+        ]
+    },
+    {
+        "rule_id": "fsf235235",
+        "description": "safa",
+        "conditions": [
+            {
+                "type": "AND",
+                "class": "Customer",
+                "attribute": "has_addresschangedbyemployer",
+                "operator": "equals",
+                "rule_compare": "simple",
+                "value": "Y"
+            }
+        ],
+        "actions": [
+            {
+                "type": "operation",
+                "attribute": "requestoutcome.has_addresschangedaysoutcome",
+                "operation": "constant",
+                "value": "Yes"
+            },
+            {
+                "type": "return",
+                "value": true
+            }
+        ]
+    },
+    {
+        "rule_id": "test",
+        "description": "test",
+        "conditions": [
+            {
+                "type": "AND",
+                "class": "Product",
+                "attribute": "has_id",
+                "operator": "equals",
+                "rule_compare": "simple",
+                "value": "133"
+            }
+        ],
+        "actions": [
+            {
+                "type": "operation",
+                "class": "requestoutcome",
+                "attribute": "has_addresschangedaysoutcome",
+                "operation": "constant",
+                "value": "Yes"
+            },
+            {
+                "type": "return",
+                "value": true
+            }
+        ]
+    },
+    {
+        "rule_id": "test123214",
+        "description": "test235",
+        "conditions": [
+            {
+                "type": "AND",
+                "class": "Product",
+                "attribute": "has_id",
+                "operator": "equals",
+                "rule_compare": "simple",
+                "value": "133etwet"
+            }
+        ],
+        "actions": [
+            {
+                "type": "operation",
+                "class": "requestoutcome",
+                "attribute": "has_addresschangedaysoutcome",
+                "operation": "constant",
+                "value": "Yes"
+            },
+            {
+                "type": "return",
+                "value": true
+            }
+        ]
+    },
+    {
+        "rule_id": "egetwe",
+        "description": "jb",
+        "conditions": [
+            {
+                "type": "AND",
+                "class": "Product",
+                "attribute": "has_id",
+                "operator": "equals",
+                "rule_compare": "simple",
+                "value": "y"
+            }
+        ],
+        "actions": [
+            {
+                "type": "return",
+                "value": true
+            }
+        ]
+    },
+    {
+        "rule_id": "6346",
+        "description": "khjkh",
+        "conditions": [
+            {
+                "type": "AND",
+                "class": "Product",
+                "attribute": "has_id",
+                "operator": "equals",
+                "rule_compare": "simple",
+                "value": "23313"
+            }
+        ],
+        "actions": [
+            {
+                "type": "operation",
+                "class": "Product",
+                "attribute": "has_id",
+                "operation": "constant",
+                "value": "87878"
+            }
+        ]
+    }
+]

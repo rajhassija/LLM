@@ -1,0 +1,69 @@
+{
+    "classes": [
+        {
+            "name": "Product",
+            "data_properties": [
+                "has_id",
+                "has_name",
+                "has_price",
+                "has_category"
+            ],
+            "object_properties": []
+        },
+        {
+            "name": "plan",
+            "data_properties": [
+                "has_id",
+                "has_name"
+            ],
+            "object_properties": []
+        },
+        {
+            "name": "feature",
+            "data_properties": [],
+            "object_properties": []
+        },
+        {
+            "name": "Order",
+            "data_properties": [
+                "has_order_id",
+                "has_product_id",
+                "has_quantity",
+                "has_total_price"
+            ],
+            "object_properties": [
+                "ordered_by",
+                "contains_product"
+            ]
+        },
+        {
+            "name": "Customer",
+            "data_properties": [
+                "has_name",
+                "has_customer_id",
+                "has_email",
+                "has_loyalty_points",
+                "has_addresschangedbyemployer",
+                "has_addresschangedays"
+            ],
+            "object_properties": []
+        },
+        {
+            "name": "requestransaction",
+            "data_properties": [
+                "has_reqid",
+                "has_reqamount",
+                "has_reqdisttype"
+            ],
+            "object_properties": []
+        },
+        {
+            "name": "requestoutcome",
+            "data_properties": [
+                "has_reqid",
+                "has_addresschangedaysoutcome"
+            ],
+            "object_properties": []
+        }
+    ]
+}

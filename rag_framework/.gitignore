@@ -1,0 +1,7 @@
+/Users/rajes/OneDrive/Documents/GitHub/rajpersonal/Gemini/pdf
+/Users/rajes/OneDrive/Documents/GitHub/rajpersonal/Gemini/data/chroma_google_db
+/Users/rajes/OneDrive/Documents/GitHub/rajpersonal//chroma_db
+
+git rm -r --cached /Users/rajes/OneDrive/Documents/GitHub/rajpersonal/Gemini/data/chroma_google_db/
+git rm -r --cached /Users/rajes/OneDrive/Documents/GitHub/rajpersonal/Gemini/pdf/
+git rm -r --cached /Users/rajes/OneDrive/Documents/GitHub/rajpersonal//chroma_db

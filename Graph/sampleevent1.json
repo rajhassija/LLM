@@ -1,0 +1,195 @@
+{
+    "rules": [
+        {
+            "rule_id": "rule_001",
+            "description": "Check if Product price is greater than 50 and set discount",
+            "conditions": [
+                {
+                    "type": "AND",
+                    "class": "Product",
+                    "attribute": "has_price",
+                    "operator": "greater_than",
+                    "value": 50
+                }
+            ],
+            "actions": [
+                {
+                    "type": "operation",
+                    "class": "Product",
+                    "attribute": "has_discount",
+                    "operation": "constant",
+                    "value": 10
+                }
+            ]
+        },
+        {
+            "rule_id": "rule_002",
+            "description": "If Product category is Electronics, apply special discount",
+            "conditions": [
+                {
+                    "type": "AND",
+                    "class": "Product",
+                    "attribute": "has_category",
+                    "operator": "equals",
+                    "value": "Electronics"
+                }
+            ],
+            "actions": [
+                {
+                    "type": "operation",
+                    "class": "Product",
+                    "attribute": "has_discount",
+                    "operation": "constant",
+                    "value": 15
+                }
+            ]
+        },
+        {
+            "rule_id": "rule_003",
+            "description": "If quantity is between 5 and 10, give 5% off",
+            "conditions": [
+                {
+                    "type": "AND",
+                    "class": "Order",
+                    "attribute": "has_quantity",
+                    "operator": "between",
+                    "value": [5, 10]
+                }
+            ],
+            "actions": [
+                {
+                    "type": "operation",
+                    "class": "Order",
+                    "attribute": "has_total_price",
+                    "operation": "multiply",
+                    "value": 0.95
+                }
+            ]
+        },
+        {
+            "rule_id": "rule_004",
+            "description": "If customer has loyalty points greater than 500, apply 20% discount",
+            "conditions": [
+                {
+                    "type": "AND",
+                    "class": "Customer",
+                    "attribute": "has_loyalty_points",
+                    "operator": "greater_than",
+                    "value": 500
+                }
+            ],
+            "actions": [
+                {
+                    "type": "operation",
+                    "class": "Order",
+                    "attribute": "has_total_price",
+                    "operation": "multiply",
+                    "value": 0.8
+                }
+            ]
+        },
+        {
+            "rule_id": "rule_005",
+            "description": "If customer email domain is in the list, apply VIP discount",
+            "conditions": [
+                {
+                    "type": "AND",
+                    "class": "Customer",
+                    "attribute": "has_email",
+                    "operator": "in",
+                    "value": ["@vip.com", "@premium.com"]
+                }
+            ],
+            "actions": [
+                {
+                    "type": "operation",
+                    "class": "Order",
+                    "attribute": "has_total_price",
+                    "operation": "multiply",
+                    "value": 0.85
+                }
+            ]
+        },
+        {
+            "rule_id": "rule_006",
+            "description": "If customer email domain is NOT in the list, apply standard discount",
+            "conditions": [
+                {
+                    "type": "AND",
+                    "class": "Customer",
+                    "attribute": "has_email",
+                    "operator": "not_in",
+                    "value": ["@vip.com", "@premium.com"]
+                }
+            ],
+            "actions": [
+                {
+                    "type": "operation",
+                    "class": "Order",
+                    "attribute": "has_total_price",
+                    "operation": "multiply",
+                    "value": 0.90
+                }
+            ]
+        },
+        {
+            "rule_id": "rule_007",
+            "description": "If quantity is less than 5, apply a small discount",
+            "conditions": [
+                {
+                    "type": "AND",
+                    "class": "Order",
+                    "attribute": "has_quantity",
+                    "operator": "less_than",
+                    "value": 5
+                }
+            ],
+            "actions": [
+                {
+                    "type": "operation",
+                    "class": "Order",
+                    "attribute": "has_total_price",
+                    "operation": "multiply",
+                    "value": 0.97
+                }
+            ]
+        },
+        {
+            "rule_id": "rule_008",
+            "description": "If category is NOT Home Appliances, add tax",
+            "conditions": [
+                {
+                    "type": "AND",
+                    "class": "Product",
+                    "attribute": "has_category",
+                    "operator": "not_equals",
+                    "value": "Home Appliances"
+                }
+            ],
+            "actions": [
+                {
+                    "type": "operation",
+                    "class": "Order",
+                    "attribute": "has_total_price",
+                    "operation": "multiply",
+                    "value": 1.1
+                }
+            ]
+        }
+    ],
+    "data": {
+        "Product": {
+            "has_price": 75,
+            "has_category": "Electronics",
+            "has_discount": 0
+        },
+        "Order": {
+            "has_quantity": 6,
+            "has_total_price": 100
+        },
+        "Customer": {
+            "has_loyalty_points": 600,
+            "has_email": "customer@vip.com"
+        }
+    }
+}

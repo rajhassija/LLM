@@ -1,0 +1,40 @@
+{
+    "classes": [
+        "AnchovyTopping",
+        "SeafoodTopping",
+        "CaperTopping",
+        "VegetableTopping",
+        "CheeseTopping",
+        "PizzaTopping",
+        "DeepPanBase",
+        "PizzaBase",
+        "ThinAndCrispyBase",
+        "GreenPepperTopping",
+        "PepperTopping",
+        "HamTopping",
+        "MeatTopping",
+        "JalapenoPepperTopping",
+        "MozzarellaTopping",
+        "ParmesanTopping",
+        "MushroomTopping",
+        "OliveTopping",
+        "OnionTopping",
+        "PepperoniTopping",
+        "Pizza",
+        "PrawnTopping",
+        "RedPepperTopping",
+        "SalamiTopping",
+        "SpicyBeefTopping",
+        "TomatoTopping",
+        "TunaTopping"
+    ],
+    "data_properties": [],
+    "object_properties": [
+        "hasBase",
+        "hasIngredient",
+        "isBaseOf",
+        "isIngredientOf",
+        "hasTopping",
+        "isToppingOf"
+    ]
+}

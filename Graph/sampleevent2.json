@@ -1,0 +1,58 @@
+{
+    "rules": [
+        {
+            "rule_id": "rule_001",
+            "description": "Set discount to 10 if the price is greater than 50",
+            "changeable": true,
+            "guidance": "Check product price and make it > 50.",
+            "conditions": [
+                {
+                    "type": "AND",
+                    "class": "Product",
+                    "attribute": "has_price",
+                    "operator": "greater_than",
+                    "value": 50
+                }
+            ],
+            "actions": [
+                {
+                    "type": "operation",
+                    "class": "Product",
+                    "attribute": "has_discount",
+                    "operation": "constant",
+                    "value": 10
+                }
+            ]
+        },
+        {
+            "rule_id": "rule_002",
+            "description": "Apply extra discount if has_discount is set to 10",
+            "changeable": false,
+            "guidance": "Check discount",
+            "conditions": [
+                {
+                    "type": "AND",
+                    "class": "Product",
+                    "attribute": "has_discount",
+                    "operator": "equals",
+                    "value": 10
+                }
+            ],
+            "actions": [
+                {
+                    "type": "operation",
+                    "class": "Product",
+                    "attribute": "has_price",
+                    "operation": "multiply",
+                    "value": 0.9
+                }
+            ]
+        }
+    ],
+    "data": {
+        "Product": {
+            "has_price": 55,
+            "has_discount": 0
+        }
+    }
+}
